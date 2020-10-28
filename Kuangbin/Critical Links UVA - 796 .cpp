@@ -1,4 +1,12 @@
 /*
+题意：
+无向图割边数量并输出
+
+题解：
+无向图割边模板题
+*/
+
+/*
  * @Author : Nightmare
  */
 #include <bits/stdc++.h>
@@ -23,7 +31,7 @@ void tarjan(int u, int fa) {
         if(v == fa) continue;
         if(!dfn[v]){
             tarjan(v, u), low[u] = min(low[u], low[v]);
-            if(low[v] > dfn[u]) ans.push_back({u, v});
+            if(low[v] > dfn[u]) ans.push_back({u, v}); // 满足割边条件
         }
         else if(instack[v]) low[u] = min(low[u], dfn[v]);
     }
